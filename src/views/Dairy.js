@@ -28,13 +28,13 @@ function ViewCatalog() {
                             <div key="{Dairy.id}">
                                 <img src={Dairy.img} className="card-img-top" alt="..." />
                                 <div className="card-body">
-                                    <p className="card-text">Description: {Dairy.description}</p>
+                                    <h3 className="card-text">{Dairy.description}</h3>
                                 </div>
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item">Price: ${Dairy.price.toFixed(2)}</li>
                                 </ul>
                                 <div className="card-body">
-                                    <a href="/" className="card-link">Add to Cart</a>
+                                    <button className="card-link btn-warning">Add to Cart</button>
                                 </div>
                             </div>
                         </div>

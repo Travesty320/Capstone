@@ -1,0 +1,52 @@
+.parent{
+    background-image: url(../src/components/foods.png);
+    height: 660px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+.home1 {
+    cursor: pointer;
+    border: 1px solid #e7e726;
+    height: 50px;
+    width: 200px;
+    color: #020405;
+    font-size: 1.5em;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    margin-left: 300px;
+    margin-top: 150px
+}
+.home2 {
+    cursor: pointer;
+    border: 1px solid #e7e726;
+    height: 50px;
+    width: 200px;
+    color: #020405;
+    font-size: 1.5em;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    margin-left: 1100px;
+    margin-top: -77px;
+}
+.home3 {
+    cursor: pointer;
+    border: 1px solid #e7e726;
+    height: 50px;
+    width: 200px;
+    color: #020405;
+    font-size: 1.5em;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    margin-left: 300px;
+    margin-top: 300px;
+}
+.home4 {
+    cursor: pointer;
+    border: 1px solid #e7e726;
+    height: 50px;
+    width: 200px;
+    color: #020405;
+    font-size: 1.5em;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    margin-left: 1100px;
+    margin-top: -80px;
+}
