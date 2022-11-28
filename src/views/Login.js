@@ -4,18 +4,19 @@ import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../UserAuthContext";
 
-const LogIn = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { LogIn } = useUserAuth();
+  const { logIn } = useUserAuth();
   const navigate = useNavigate();
+  const { user, logout } = useUserAuth
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      await LogIn(email, password);
+      await logIn(email, password);
       navigate("/");
     } catch (err) {
       setError(err.message);
@@ -25,7 +26,7 @@ const LogIn = () => {
   return (
     <>
       <div className="p-4 box">
-        <h2 className="mb-3"> </h2>
+        <h2 className="mb-3">Login</h2>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -59,4 +60,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default Login;

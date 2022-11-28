@@ -4,7 +4,7 @@ import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../UserAuthContext";
 
-const SignUp = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +25,7 @@ const SignUp = () => {
   return (
     <>
       <div className="p-4 box">
-        <h2 className="mb-3"></h2>
+        <h2 className="mb-3">Signup</h2>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -58,4 +58,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;

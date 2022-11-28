@@ -5,35 +5,52 @@ import Home from './views/Home';
 import Login from './views/Login';
 import SignUp from './views/SignUp';
 // import Cart from './views/Cart';
-// import Dairy from './views/Dairy';
-// import Produce from './views/Produce';
-// import Meat from './views/Meat';
-// import Snacks from './views/Snacks';
-import { UserAuthContextProvider } from './UserAuthContext';
-import "./UserAuthContext";
+import Dairy from './views/Dairy';
+import Produce from './views/Produce';
+import Meat from './views/Meat';
+import Snacks from './views/Snacks';
+import { UserAuthContextProvider } from "./UserAuthContext";
+
 
 
 function App() {
+
+//  const [registerEmail, setRegisterEmail] = useState("");
+//  const [registerPassword, setRegisterPassword] = useState("");
+
+
+//  const [loginEmail, setLoginEmail] = useState("");
+//  const [loginPassword, setLoginPassword] = useState("");
+
+//   const signup = async () => {
+
+//   };
+
+//   const login = async () => {
+
+//   };
+  
+//   const signout = async () => {
+
+  // };
 
   return (
 
     <Router>
         <Nav />
-        <div>
-          <UserAuthContextProvider>
+        <div> 
+         
             <Routes>
-
               <Route path='/' element={<Home />} />
-              <Route path='/login' element={<Login LogIn={this.LogIn} />} />
-              <Route path='/signup' element={<SignUp createUserWithEmailAndPassword={this.createUserWithEmailAndPassword} />} />
-              {/* <Route path='/cart' element={<Cart cart={this.state.cart} removeFromCart={this.removeFromCart} />} />
-              <Route path='/dairy' element={<Dairy addToCart={this.addToCart} />} />
-              <Route path='/produce' element={<Produce addToCart={this.addToCart} />} />
-              <Route path='/meat' element={<Meat addToCart={this.addToCart} />} />
-              <Route path='/snacks' element={<Snacks addToCart={this.addToCart} />} /> */}
-
+              <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<SignUp />} />
+              {/* <Route path='/cart' element={<Cart cart={this.state.cart} removeFromCart={this.removeFromCart} />} /> */}
+              <Route path='/dairy' element={<Dairy />} />
+              <Route path='/produce' element={<Produce />} />
+              <Route path='/meat' element={<Meat />} />
+              <Route path='/snacks' element={<Snacks />} />
             </Routes>
-          </UserAuthContextProvider>
+            
         </div>
     </Router>
   );
