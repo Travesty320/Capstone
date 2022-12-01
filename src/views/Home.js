@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
@@ -12,21 +13,16 @@ export default function Home() {
     <>
       <div className='parent'>
         <div className='container1'>
-          <Button href="/dairy" className='home1' variant="warning" type="Submit">
-            Dairy
-          </Button></div>
+          <Link to="/dairy"><Button className='home1' variant="warning" type="Submit">Dairy</Button></Link>
+        </div>
         <div className='container2'>
-          <Button href="/meat" className='home2' variant="warning" type="Submit">
-            Meat
-          </Button></div>
+          <Link to="/meat"><Button className='home2' variant="warning" type="Submit">Meat</Button></Link>
+        </div>
         <div className='container3'>
-          <Button href="/produce" className='home3' variant="warning" type="Submit">
-            Produce
-          </Button></div>
+          <Link to="/produce"><Button className='home3' variant="warning" type="Submit">Produce</Button></Link>
+        </div>
         <div className='container4'>
-          <Button href="/snacks" className='home4' variant="warning" type="Submit">
-            Snacks
-          </Button>
+          <Link to="/snacks"><Button className='home4' variant="warning" type="Submit">Snacks</Button></Link>
         </div>
       </div>
     </>

@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { db } from '../firebase-config';
 import { collection, getDocs, addDoc } from 'firebase/firestore'
 import { useUserAuth } from "../UserAuthContext";
-
+import { getDatabase, ref, set, child, get  } from "firebase/database";
 
 function ViewCatalog() {
+    const { user, cart, setCart } = useUserAuth();
     const [Snacks, setSnacks] = useState([]);
     const SnacksCollectionRef = collection(db, "Snacks")
     useEffect(() => {
@@ -16,7 +17,28 @@ function ViewCatalog() {
         };
         getSnacks();
     }, []);
-    const { user, logout } = useUserAuth
+    const addToDB = (cart) => {
+        const db = getDatabase();
+        set(ref(db, `/cart/${user.uid}`), cart)
+        console.log(cart)
+    };
+
+    const addToCart = (item) => {
+        const newCart = { ...cart };
+        if (item.id in newCart) {
+            newCart[item.id].qty++;
+        }
+        else {
+            newCart[item.id] = item
+            newCart[item.id].qty = 1
+        }
+        newCart.size++
+
+        setCart(newCart)
+        if (user.uid) {
+            addToDB(newCart)
+        }
+    };
 
     return (
 
@@ -34,8 +56,8 @@ function ViewCatalog() {
                                     <li className="list-group-item">Price: ${Snack.price.toFixed(2)}</li>
                                 </ul>
                                 <div className="card-body">
-                                <button className="card-link btn-warning">Add to Cart</button>
-                                </div>
+                                        <button className="card-link btn-warning" onClick={()=>{addToCart(Snacks)}}>Add to Cart</button>
+                                    </div>
                             </div>
                         </div>
                     )

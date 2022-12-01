@@ -6,9 +6,8 @@ import { getDatabase, ref, set, child, get  } from "firebase/database";
 
 
 function ViewCatalog() {
-    const { user } = useUserAuth();
+    const { user, cart, setCart } = useUserAuth();
     const [Dairy, setDairy] = useState([]);
-    const [cart, setCart] = useState({size: 0});
     const DairyCollectionRef = collection(db, "Dairy")
     useEffect(() => {
         const getDairy = async () => {
@@ -20,22 +19,11 @@ function ViewCatalog() {
         getDairy();
     }, []);
     
-    
-
     const addToDB = (cart) => {
         const db = getDatabase();
         set(ref(db, `/cart/${user.uid}`), cart)
         console.log(cart)
     };
-
-    const getCart = async (user) => {
-        const dbRef = ref(getDatabase())
-        const snapshot = await get(child(dbRef, `/cart/${user.uid}`))
-        if (snapshot.exists()){
-          setCart(snapshot.val())
-        }
-      }
-
 
     const addToCart = (item) => {
         const newCart = { ...cart };
@@ -53,6 +41,7 @@ function ViewCatalog() {
             addToDB(newCart)
         }
     };
+
 
         return (
 

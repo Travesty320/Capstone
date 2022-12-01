@@ -6,13 +6,27 @@ import {
   signOut
 } from "firebase/auth";
 import { auth } from "./firebase-config";
+import { getDatabase, ref, set, child, get  } from "firebase/database";
 
 
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
+
   const [user, setUser] = useState({});
-  const [cart, getCart] = useState({});
+  const [cart, setCart] = useState({ size:0 });
+
+  useEffect(()=>{if (user.uid){getCart(user)}},[user])
+
+  const getCart = async (user) => {
+    const dbRef = ref(getDatabase())
+    const snapshot = await get(child(dbRef, `/cart/${user.uid}`))
+    if (snapshot.exists()){
+      setCart(snapshot.val())
+    }
+  }
+
+
 
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
@@ -23,6 +37,8 @@ export function UserAuthContextProvider({ children }) {
   function logOut() {
     return signOut(auth);
   }
+
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
@@ -38,7 +54,7 @@ export function UserAuthContextProvider({ children }) {
 
   return (
     <userAuthContext.Provider
-      value={{ user, logIn, signUp, logOut }}
+      value={{ user, logIn, signUp, logOut, cart, setCart }}
     >
       {children}
     </userAuthContext.Provider>
