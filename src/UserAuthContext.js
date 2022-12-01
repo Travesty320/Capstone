@@ -7,11 +7,12 @@ import {
 } from "firebase/auth";
 import { auth } from "./firebase-config";
 
+
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
-
+  const [cart, getCart] = useState({});
 
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
@@ -27,6 +28,7 @@ export function UserAuthContextProvider({ children }) {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
       console.log("Auth", currentuser);
       setUser(currentuser);
+      getCart(currentuser);
   });
 
     return () => {

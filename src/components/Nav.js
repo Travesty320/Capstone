@@ -1,28 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { signOut } from "firebase/auth";
-import { auth } from "../firebase-config";
 import '../App.css'
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useUserAuth } from '../UserAuthContext';
+import { getDatabase, ref, set, child, get } from "firebase/database";
+
 
 
 
 
 export default function Nav() {
 
-    // signOut(auth).then(() => {
-    // }).catch((error) => {
-    // });
+
+    // getTotal = (cart) => {
+    //     let total = 0;
+    //     for (let item of cart) {
+    //         total = total + parseFloat(item.price)
+    //     }
+    //     return total.toFixed(2)
+    // }
     const { logOut, user } = useUserAuth()
 
-    const getTotal = (cart) => {
-        let total = 0;
-        for (let item of cart) {
-            total = total + parseFloat(item.price)
-        }
-        return total.toFixed(2)
-    }
     return (
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
@@ -30,9 +28,9 @@ export default function Nav() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     {user ?
                         <>
-                            <li className="nav-item">
+                            <div className="nav-item">
                                 <Link className="nav-link" to="/login" onClick={() => { logOut() }}>Log Out</Link>
-                            </li>
+                            </div>
                             <Dropdown>
                                 <Dropdown.Toggle variant="warning" id="dropdown-basic">
                                     View Products
@@ -44,8 +42,9 @@ export default function Nav() {
                                     <Dropdown.Item href="/snacks">Snacks</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
+                            
                             {/* <li className="nav-item">
-                                <Link className="nav-link" to="/cart">{this.props.cart.length} | {this.getTotal(this.props.cart)}</Link>
+                                <Link className="nav-link" to="/cart">{ getTotal }</Link>
                             </li> */}
                         </>
                         :

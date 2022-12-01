@@ -20,7 +20,7 @@ function ViewCatalog() {
 
     return (
 
-        <div>
+        <div className='row'>
             {
                 Produce.map((Produce) => {
                     return (

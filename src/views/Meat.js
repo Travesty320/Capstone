@@ -20,7 +20,7 @@ function ViewCatalog() {
 
     return (
 
-        <div>
+        <div className='row'>
             {
                 Meats.map((Meat) => {
                     return (
