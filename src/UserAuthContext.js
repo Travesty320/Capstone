@@ -6,7 +6,7 @@ import {
   signOut
 } from "firebase/auth";
 import { auth } from "./firebase-config";
-import { getDatabase, ref, set, child, get  } from "firebase/database";
+import { getDatabase, ref, child, get  } from "firebase/database";
 
 
 const userAuthContext = createContext();
@@ -16,17 +16,17 @@ export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
   const [cart, setCart] = useState({ size:0 });
 
-  useEffect(()=>{if (user.uid){getCart(user)}},[user])
+  
 
   const getCart = async (user) => {
     const dbRef = ref(getDatabase())
-    const snapshot = await get(child(dbRef, `/cart/${user.uid}`))
+    const snapshot = await get(child(dbRef, `/${user.uid}/cart`))
     if (snapshot.exists()){
       setCart(snapshot.val())
     }
   }
 
-
+  useEffect(()=>{if (user.uid){getCart(user)}},[])
 
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);

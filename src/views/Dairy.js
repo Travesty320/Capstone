@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../firebase-config';
 import { collection, getDocs } from 'firebase/firestore'
 import { useUserAuth } from "../UserAuthContext";
-import { getDatabase, ref, set, child, get  } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 
 
 function ViewCatalog() {
@@ -21,7 +21,7 @@ function ViewCatalog() {
     
     const addToDB = (cart) => {
         const db = getDatabase();
-        set(ref(db, `/cart/${user.uid}`), cart)
+        set(ref(db, `/${user.uid}/cart`), cart)
         console.log(cart)
     };
 

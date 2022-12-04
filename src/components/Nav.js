@@ -1,25 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import '../App.css'
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useUserAuth } from '../UserAuthContext';
-import { getDatabase, ref, set, child, get } from "firebase/database";
+
 
 
 
 
 
 export default function Nav() {
-    const { logOut, user, cart, setCart } = useUserAuth()
+    const { logOut, user } = useUserAuth()
 
-    const getTotal = (cart) => {
-        let total = 0;
-        for (let item of cart) {
-            total = total + parseFloat(item.price)
-        }
-        return total.toFixed(2)
-    }
-    
 
     return (
         <nav className="navbar navbar-expand-lg bg-light">
@@ -43,9 +35,9 @@ export default function Nav() {
                                 </Dropdown.Menu>
                             </Dropdown>
                             
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/cart">{ getTotal }</Link>
-                            </li>
+                            <div className="nav-item">
+                                <Link className="nav-link active" to="/cart">Cart</Link>
+                            </div>
                         </>
                         :
                         <>

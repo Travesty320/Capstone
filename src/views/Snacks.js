@@ -19,7 +19,7 @@ function ViewCatalog() {
     }, []);
     const addToDB = (cart) => {
         const db = getDatabase();
-        set(ref(db, `/cart/${user.uid}`), cart)
+        set(ref(db, `/${user.uid}/cart`), cart)
         console.log(cart)
     };
 
@@ -44,16 +44,16 @@ function ViewCatalog() {
 
         <div className='row'>
             {
-                Snacks.map((Snack) => {
+                Snacks.map((Snacks) => {
                     return (
                         <div className="card" style={{ width: '18rem' }}>
                             <div key="{snack.id}">
-                                <img src={Snack.img} className="card-img-top" alt="..." />
+                                <img src={Snacks.img} className="card-img-top" alt="..." />
                                 <div className="card-body">
-                                    <h3 className="card-text">{Snack.description}</h3>
+                                    <h3 className="card-text">{Snacks.description}</h3>
                                 </div>
                                 <ul className="list-group list-group-flush">
-                                    <li className="list-group-item">Price: ${Snack.price.toFixed(2)}</li>
+                                    <li className="list-group-item">Price: ${Snacks.price.toFixed(2)}</li>
                                 </ul>
                                 <div className="card-body">
                                         <button className="card-link btn-warning" onClick={()=>{addToCart(Snacks)}}>Add to Cart</button>

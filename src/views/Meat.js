@@ -20,7 +20,7 @@ function ViewCatalog() {
 
     const addToDB = (cart) => {
         const db = getDatabase();
-        set(ref(db, `/cart/${user.uid}`), cart)
+        set(ref(db, `/${user.uid}/cart`), cart)
         console.log(cart)
     };
 
