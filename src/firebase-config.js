@@ -12,7 +12,7 @@ const firebaseConfig = {
   messagingSenderId: "958398471598",
   appId: "1:958398471598:web:28b8ff5bb8c1c0d48afc3f",
   measurementId: "G-MW3YDVVZMF",
-  databaseUrl: 'https://grocery-store-7e587-default-rtdb.firebaseio.com/'
+  databaseURL: 'https://grocery-store-7e587-default-rtdb.firebaseio.com/'
 };
 
 const app = initializeApp(firebaseConfig);

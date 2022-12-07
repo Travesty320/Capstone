@@ -17,7 +17,7 @@ function ViewCatalog() {
             )));
         };
         getDairy();
-    }, []);
+    }, [DairyCollectionRef]);
     
     const addToDB = (cart) => {
         const db = getDatabase();
@@ -41,6 +41,7 @@ function ViewCatalog() {
             addToDB(newCart)
         }
     };
+   
 
 
         return (

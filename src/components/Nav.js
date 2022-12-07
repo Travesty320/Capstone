@@ -10,7 +10,7 @@ import { useUserAuth } from '../UserAuthContext';
 
 
 export default function Nav() {
-    const { logOut, user } = useUserAuth()
+    const { logOut, user, cart } = useUserAuth()
 
 
     return (
@@ -28,15 +28,17 @@ export default function Nav() {
                                     View Products
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
-                                <Link to="/dairy"><Dropdown.Item>Dairy</Dropdown.Item></Link>
-                                <Link to="/meat"><Dropdown.Item>Meat</Dropdown.Item></Link>
-                                <Link to="/produce"><Dropdown.Item>Produce</Dropdown.Item></Link>
-                                <Link to="/snacks"><Dropdown.Item>Snacks</Dropdown.Item></Link>
+                                <Dropdown.Item><Link to="/dairy">Dairy</Link></Dropdown.Item>
+                                <Dropdown.Item><Link to="/meat">Meat</Link></Dropdown.Item>
+                                <Dropdown.Item><Link to="/produce">Produce</Link></Dropdown.Item>
+                                <Dropdown.Item><Link to="/snacks">Snacks</Link></Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                             
                             <div className="nav-item">
+                            
                                 <Link className="nav-link active" to="/cart">Cart</Link>
+                            
                             </div>
                         </>
                         :
