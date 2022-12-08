@@ -38,10 +38,11 @@ export default function Cart() {
         newCart[item.id].qty--;
         newCart.size--
         if (newCart[item.id].qty === 0) {
-          const itemRef = ref(db, 'cart');
+          const itemRef = ref(db, "cart");
           remove(itemRef).then(() => {
             console.log("location removed");
           });
+          delete newCart[item.id]
         }
       };
     }
@@ -56,7 +57,7 @@ export default function Cart() {
   console.log(cart)
 
   return (
-    <table className="table">
+    <table className="table container mt-5">
       <thead>
         <tr>
           <th scope="col">Name</th>

@@ -50,3 +50,23 @@
     margin-left: 1100px;
     margin-top: -80px;
 }
+.navbar {
+    color: #e7e726;
+    text-decoration: none;
+}
+a:link { text-decoration: none; color: inherit; }
+a:visited { text-decoration: none; color: inherit;  }
+a:hover { text-decoration: none; color: inherit;  }
+a:active { text-decoration: none; color: inherit;  }
+
+.ddmenu {
+    margin-left: 850px;
+}
+.card{
+    border: none !important;
+}
+.card-img-top{
+    height: 20em;   
+}
+
+

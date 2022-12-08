@@ -14,7 +14,7 @@ export default function Nav() {
 
 
     return (
-        <nav className="navbar navbar-expand-lg bg-light">
+        <nav className="navbar navbar-expand-lg bg-dark">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">Welcome</Link>
                 <div className="collapse navbar-collapse" id="navbarNav">
@@ -23,15 +23,15 @@ export default function Nav() {
                             <div className="nav-item">
                                 <Link className="nav-link" to="/login" onClick={() => { logOut() }}>Log Out</Link>
                             </div>
-                            <Dropdown>
+                            <Dropdown className='ddmenu'>
                                 <Dropdown.Toggle variant="warning" id="dropdown-basic">
                                     View Products
                                 </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                <Dropdown.Item><Link to="/dairy">Dairy</Link></Dropdown.Item>
-                                <Dropdown.Item><Link to="/meat">Meat</Link></Dropdown.Item>
-                                <Dropdown.Item><Link to="/produce">Produce</Link></Dropdown.Item>
-                                <Dropdown.Item><Link to="/snacks">Snacks</Link></Dropdown.Item>
+                                <Dropdown.Menu className='menu bg-warning'>
+                                <Dropdown.Item><Link style={{textDecoration: 'none'}} to="/dairy">Dairy</Link></Dropdown.Item>
+                                <Dropdown.Item><Link style={{textDecoration: 'none'}} to="/meat">Meat</Link></Dropdown.Item>
+                                <Dropdown.Item><Link style={{textDecoration: 'none'}} to="/produce">Produce</Link></Dropdown.Item>
+                                <Dropdown.Item><Link style={{textDecoration: 'none'}} to="/snacks">Snacks</Link></Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                             
